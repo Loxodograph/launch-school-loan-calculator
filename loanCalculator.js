@@ -5,12 +5,19 @@ function prompt(message) {
   console.log(`=> ${MESSAGES[message]}`);
 }
 
-function invalidNumber(number) {
+function invalidLoanNumber(number) {
   number = parseFloat(number);
   return Number.isNaN(Number(number)) || parseFloat(number) <= 0;
+}
+function invalidNumber(number) {
+  number = parseFloat(number);
+  return Number.isNaN(Number(number)) || parseFloat(number) < 0;
 } //checks if input number is empty, not a number, or less than zero
 
+prompt('greetingBanner');
 prompt('greeting');
+prompt('greetingBanner');
+console.log("\n")
 
 //calculator loop
 while (true) {
@@ -18,7 +25,7 @@ while (true) {
 
   let loanAmountValue = READLINE.question();
 
-  while (invalidNumber(loanAmountValue)) {
+  while (invalidLoanNumber(loanAmountValue)) {
     prompt('invalidNumber');
     prompt('loanAmount');
     loanAmountValue = READLINE.question();
@@ -54,7 +61,7 @@ while (true) {
   let answer = READLINE.question();
 
   if (answer[0].toLowerCase() !== 'y') {
-    console.log("=> Goodbye")
+    prompt("goodbye");
     break;
   }
 }
