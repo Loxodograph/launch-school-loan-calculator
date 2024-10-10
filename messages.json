@@ -1,0 +1,5 @@
+{
+  "greeting": "Welcome to the loan calculator! ",
+  "loanAmount": "Please enter the loan amount: ",
+  "invalidNumber": "This is not a valid loan amount"
+}
