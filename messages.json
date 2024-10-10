@@ -1,5 +1,9 @@
 {
   "greeting": "Welcome to the loan calculator! ",
   "loanAmount": "Please enter the loan amount: ",
-  "invalidNumber": "This is not a valid loan amount"
+  "invalidNumber": "This is not a valid loan amount",
+  "APRrequest": "Please enter the Annual Percentage Rate (APR): ",
+  "loanDuration": "Please enter the duration of the loan in months",
+  "monthlyPayment": "Your monthly payment is: ",
+  "continue": "Would you like to enter another loan? (y/n) "
 }
