@@ -1,6 +1,7 @@
 {
   "greetingBanner": "-------------------------------",
   "greeting": "Welcome to the loan calculator!",
+  "emptyLine": "",
   "loanAmount": "Please enter the loan amount: ",
   "invalidNumber": "This is not a valid loan amount. Please enter a number greater than 0. ",
   "APRrequest": "Please enter the Annual Percentage Rate (APR): example: Enter '5' for 5%",

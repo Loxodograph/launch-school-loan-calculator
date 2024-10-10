@@ -1,5 +1,6 @@
 const READLINE = require('readline-sync');
 const MESSAGES = require('./messages.json');
+let loopContinue = true;
 
 function prompt(message) {
   console.log(`=> ${MESSAGES[message]}`);
@@ -17,39 +18,43 @@ function invalidNumber(number) {
 prompt('greetingBanner');
 prompt('greeting');
 prompt('greetingBanner');
-console.log("\n")
+prompt('emptyLine');
 
 //calculator loop
-while (true) {
+while (loopContinue) {
   prompt('loanAmount');
 
-  let loanAmountValue = READLINE.question();
+  let loanAmountValue = READLINE.question("=> ");
 
   while (invalidLoanNumber(loanAmountValue)) {
     prompt('invalidNumber');
     prompt('loanAmount');
-    loanAmountValue = READLINE.question();
+    loanAmountValue = READLINE.question("=> ");
   }
 
   prompt('APRrequest');
-  let APRValue = READLINE.question();
+  let APRValue = READLINE.question("=> ");
 
   while (invalidNumber(APRValue)) {
     prompt('invalidNumber');
     prompt('APRrequest');
-    APRValue = READLINE.question();
+    APRValue = READLINE.question("=> ");
   }
 
   let APRPercentage = APRValue / 100
   let monthlyInterestRate = APRPercentage / 12
 
   prompt('loanDuration');
-  let loanDuration = READLINE.question();
+  let loanDuration = READLINE.question("=> ");
+
+  if(loanDuration.includes("years")) {
+    loanDuration 
+  }
 
   while (invalidNumber(loanDuration)) {
     prompt('invalidNumber');
     prompt('loanDuration');
-    APRValue = READLINE.question();
+    APRValue = READLINE.question("=> ");
   }
 
   let monthlyPayment = loanAmountValue * (monthlyInterestRate / (1 - Math.pow((1 + monthlyInterestRate), (-loanDuration))));
@@ -58,10 +63,10 @@ while (true) {
   console.log(`=> $${monthlyPayment.toFixed(2)}`);
 
   prompt("continue");
-  let answer = READLINE.question();
+  let answer = READLINE.question("=> ");
 
   if (answer[0].toLowerCase() !== 'y') {
     prompt("goodbye");
-    break;
+    loopContinue = false;
   }
 }
